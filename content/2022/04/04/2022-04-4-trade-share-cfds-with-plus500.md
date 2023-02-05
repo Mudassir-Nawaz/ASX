@@ -3,6 +3,7 @@ layout: post
 title: Trade share CFDs with Plus500
 external_url: https://www.plus500.com/en/Trading/Stocks?id=131797&pl=2
 featured: true
+type: "sponsored"
 event_id: JPFLQDEP
 date: '2022-04-04 18:01'
 year: "2022"

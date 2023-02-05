@@ -2,9 +2,9 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
 <main>
-  <article class="post linked" style="margin-top: 30px;">
+  <article class="post spon" style="margin-top: 30px;">
     <h1 class="post-title">
-      <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+      <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;SPON&gt;</a>
       <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
     </h1>
     {{ partial "metadata.html" . }}
@@ -43,15 +43,15 @@
       <!-- TradingView Widget END -->
       <p class="spon widget-caption"><a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);">Save $30 on a Pro or Premium TradingView account</a></p>
     <hr>
-    <ul class="archives-list">
+    <aside class="related" style="color: #FC9D0D !important;">
       {{ range $name, $taxonomy := .Site.Taxonomies.year  }}
               <h3 id="">Recent Posts</a></h2>
               <ul class="related-posts">
                   {{ range first 3 .Pages }}
                   <li class="archive-posts">
-                    <h4 class="linked">
-                      <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
-                      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <h4 class="linked" style="color: #FC9D0D !important;">
+                      <a style="color: #FC9D0D !important;" href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+                      <a style="color: #FC9D0D !important;" href="{{ .RelPermalink }}">{{ .Title }}</a>
                       <a class="post-date" href="{{ .RelPermalink }}">
                         <small>
                           <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
@@ -64,23 +64,25 @@
       {{- end -}}
     </ul>
     <hr>
-    {{ range $name, $taxonomy := .Site.Taxonomies.category.linked }}
-          <h2 id="{{ $name }}"><a href="/2022/">{{ $name }}</a> <a href="#top">&#8599;</a></h2>
-          <ul class="related-posts">
-              {{ .Content }}
-              <li class="archive-posts">
-                <h4 class="linked">
-                  <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
-                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                  <a class="post-date" href="{{ .RelPermalink }}">
-                    <small>
-                      <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
-                    </small>
-                  </a>
-                </h4>
-              </li>
-          </ul>
-    {{- end -}}
+    <h1 class=""><a href="/subscribe" style="color: #FC9D0D !important;">Subscribe to the newsletter</a></h1>
+
+    <p style="color: #ccc;">Receive whispers every day in your inbox.</p>
+
+    <!-- <p class="label">Enter email</p> -->
+
+    <form
+      action="https://buttondown.email/api/emails/embed-subscribe/asxwhisperer"
+      method="post"
+      target="popupwindow"
+      onsubmit="fathom.trackGoal('Y92MOTZX', 0);window.open('https://buttondown.email/asxwhisperer', 'popupwindow')"
+      class="embeddable-buttondown-form"
+    >
+    <!--   <label for="bd-email">Enter email: </label> -->
+    <!--   <input type="label" value="Enter email:"/> -->
+      <input type="email" name="email" id="bd-email" placeholder="<ENTER EMAIL>"/>
+      <input type="submit" value="<SUBSCRIBE>" />
+    </form>
+
   </article>
 </main>
 {{ end }}
